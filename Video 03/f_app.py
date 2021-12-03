@@ -1,9 +1,15 @@
 from flask import Flask, render_template
+from flask.templating import render_template_string
 
-app = Flask(__name__)
+f_app = Flask(__name__)
+@f_app.route("/")
+def home():
+    name = "Jay"
+    return render_template("index.html", name=name)
 
-@app.route('/')
-def hello():
-    return render_template('index.html')
+@f_app.route("/about")
+def about():
+    name = 'mahil'
+    return render_template("about.html", name2=name)
 
-app.run(debug=True)
+f_app.run(debug=True)
