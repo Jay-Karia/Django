@@ -8,3 +8,7 @@ def home(request):
         "members": all_members
     }
     return render(request, "home.html", context)
+
+
+def join(request):
+    return render(request, "join.html")
