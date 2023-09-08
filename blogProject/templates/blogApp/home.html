@@ -1,0 +1,14 @@
+{% extends 'blogApp/base.html' %}
+{% block title %}
+    Blog Project
+{% endblock %}
+{% block content %}
+    <h3>Posts</h3>
+    <ul>
+        {% for post in post_list %}
+            <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - {{ post.author }}</li>
+            <p>{{ post.body }}</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
