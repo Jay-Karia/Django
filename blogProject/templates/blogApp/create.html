@@ -1,0 +1,19 @@
+{% extends "blogApp/base.html" %}
+
+{% block title %}
+    Create a new Blog
+{% endblock %}
+
+{% block content %}
+    <h3>Create a Blog Post</h3>
+    <br><br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn btn-success">Post</button>
+        <a href="/" type="button" class="btn btn-secondary" style="margin-left: 10px">Back</a>
+
+    </form>
+
+{% endblock %}

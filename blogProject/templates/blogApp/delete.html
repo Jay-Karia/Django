@@ -1,0 +1,22 @@
+{% extends "blogApp/base.html" %}
+
+{% block title %}
+    Delete Post
+{% endblock %}
+
+{% block content %}
+    <h3>Delete Post</h3>
+    <h4 style="color: orange">{{ post.title }}</h4>
+
+    <form method="post">
+        {% csrf_token %}
+        <strong>Are you sure?</strong>
+        <br><br>
+        <button class="btn btn-danger">Yes!</button>
+        <a href="/" type="button" class="btn btn-secondary" style="margin-left: 10px">Back</a>
+
+    </form>
+
+    <br><br>
+
+{% endblock %}

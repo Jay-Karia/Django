@@ -1,6 +1,6 @@
 {% extends 'blogApp/base.html' %}
 {% block title %}
-    {{ post.title }}
+    {{ post.title_tag }}
 {% endblock %}
 
 <div>
@@ -11,6 +11,7 @@
         <br>
         <p>{{ post.body }}</p>
 
-        <a href="/" type="button" class="btn btn-warning">Back</a>
+        <a href="/" type="button" class="btn btn-secondary">Back</a>
+        <a href="{% url 'update' post.pk %}" class="btn btn-warning" style="margin-left: 10px">Edit</a>
     {% endblock %}
 </div>
