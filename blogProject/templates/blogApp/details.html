@@ -9,7 +9,7 @@
         <h6>By: {{ post.author }} - {{ post.date }}</h6>
         <hr>
         <br>
-        <p>{{ post.body }}</p>
+        <p>{{ post.body|safe }}</p>
 
         <a href="/" type="button" class="btn btn-secondary">Back</a>
         {% if user.is_authenticated %}

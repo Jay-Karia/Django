@@ -1,0 +1,22 @@
+{% extends 'blogApp/../base.html' %}
+{% block title %}
+    Categories
+{% endblock %}
+{% block content %}
+    {% if category_posts %}
+        <h1 style="color: mediumpurple">Category: <span style="color:#3e14ab">{{ category }}</span></h1>
+        <br>
+        {% for category_post in category_posts %}
+            <h2>{{ category_post.title }}</h2>
+            <h6>By: {{ category_post.author }} - {{ category_post.date }}</h6>
+            <hr>
+            <br>
+            <p>{{ category_post.body|safe }}</p>
+
+        {% endfor %}
+    {% else %}
+        <h3>Sorry this page does not exist!!</h3>
+    {% endif %}
+
+
+{% endblock %}
