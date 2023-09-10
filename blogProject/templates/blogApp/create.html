@@ -1,19 +1,25 @@
-{% extends "blogApp/base.html" %}
+{% extends "blogApp/../base.html" %}
 
 {% block title %}
     Create a new Blog
 {% endblock %}
 
 {% block content %}
-    <h3>Create a Blog Post</h3>
-    <br><br>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+    {% if user.is_authenticated %}
+        <h3>Create a Blog Post</h3>
+        <br><br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
 
-        <button class="btn btn-success">Post</button>
-        <a href="/" type="button" class="btn btn-secondary" style="margin-left: 10px">Back</a>
+            <button class="btn btn-success">Post</button>
+            <a href="/" type="button" class="btn btn-secondary" style="margin-left: 10px">Back</a>
 
-    </form>
+        </form>
+    {% else %}
+        You are allowed to visit this page!!!
+        <br>
+        <a href="/auth/login" type="button" class="btn btn-secondary" style="margin-top: 20px">Login</a>
+    {% endif %}
 
 {% endblock %}

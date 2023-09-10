@@ -1,22 +1,27 @@
-{% extends "blogApp/base.html" %}
+{% extends "blogApp/../base.html" %}
 
 {% block title %}
     Delete Post
 {% endblock %}
 
 {% block content %}
-    <h3>Delete Post</h3>
-    <h4 style="color: orange">{{ post.title }}</h4>
+    {% if user.is_authenticated %}
+        <h3>Deleting <span style="color: orange">{{ post.title }}</span></h3>
 
-    <form method="post">
-        {% csrf_token %}
-        <strong>Are you sure?</strong>
+        <form method="post">
+            {% csrf_token %}
+            <strong>Are you sure?</strong>
+            <br><br>
+            <button class="btn btn-danger">Yes!</button>
+            <a href="/" type="button" class="btn btn-secondary" style="margin-left: 10px">Back</a>
+
+        </form>
+
         <br><br>
-        <button class="btn btn-danger">Yes!</button>
-        <a href="/" type="button" class="btn btn-secondary" style="margin-left: 10px">Back</a>
-
-    </form>
-
-    <br><br>
+    {% else %}
+        You are allowed to visit this page!!!
+        <br>
+        <a href="/auth/login" type="button" class="btn btn-secondary" style="margin-top: 20px">Login</a>
+    {% endif %}
 
 {% endblock %}
